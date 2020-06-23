@@ -25,6 +25,7 @@ import { DropDownDirective } from './shared/dropdown.directive';
     ShoppingListComponent,
     ShoppingListEditComponent,
     DropDownDirective,
+  
   ],
   imports: [
     BrowserModule,

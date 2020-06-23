@@ -9,7 +9,7 @@
         <recipe-item  
         *ngFor="let recipe of recipes" 
         [recipeItem]="recipe"
-        (recipeSelected)="onRecipeSelected(recipe)"></recipe-item>
+        ></recipe-item>
         <!--binding the recipeItem to the current recipe iteration-->
         <!-- recipeSelected comes from the custom event emitter that is executed on recipeDetail-->
     </div>

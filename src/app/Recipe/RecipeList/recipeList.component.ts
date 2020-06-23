@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
-import {  } from 'protractor';
+import { RecipeService } from '../recipes.service';
 
 @Component({
   selector: 'recipe-list',
@@ -8,18 +8,12 @@ import {  } from 'protractor';
   styleUrls: ['./recipeList.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [
-    new Recipe('Broccoli', 'TestDescription', 'https://www.jessicagavin.com/wp-content/uploads/2019/05/how-to-cook-broccoli-10-1200-500x500.jpg'),
-    new Recipe('Carrots', 'TestDescription2', 'https://www.jessicagavin.com/wp-content/uploads/2019/02/carrots-7-1200.jpg')
-  ]
+  recipes: Recipe[] = []
   
-  @Output()
-  passingRecipeUp = new EventEmitter<Recipe>();//need to pass Recipe as type
-
-  constructor() {}
-  ngOnInit(){}
-
-  onRecipeSelected(recipe: Recipe){
-    this.passingRecipeUp.emit(recipe);
+  constructor(private recipeService: RecipeService) {}
+  
+  ngOnInit(){
+    this.recipes = this.recipeService.getRecipes();
   }
+
 }
