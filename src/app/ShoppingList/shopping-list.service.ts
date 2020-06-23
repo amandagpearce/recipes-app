@@ -17,4 +17,10 @@ export class ShoppingListService {
         this.ingredients.push(newIng);
         this.addedIngredient.emit(this.ingredients.slice());
     }
+
+    AddIngredients(ingredients:Ingredient[]){
+        this.ingredients.push(...ingredients); // rest operator to avoid emitting multiple
+                                               // ingredient entries from a for loop
+        this.addedIngredient.emit(this.ingredients.slice());
+    }
 }
